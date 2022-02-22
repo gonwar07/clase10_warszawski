@@ -1,0 +1,19 @@
+extends ./productos
+block history
+    h3.text-primary.pt-4="Historial"
+    br
+    if productos.length > 0
+        div.table-responsive
+            table.table.table-dark.mb-5
+                tr.text-warning
+                    th.font-weight-bold="Nombre"
+                    th.font-weight-bold="Precio"
+                    th.font-weight-bold="Foto"
+                each prod in productos
+                    tr
+                        td.align-middle= `${prod.name}`
+                        td.align-middle= `${prod.price}`
+                        td
+                            img(src=`${prod.url}` style="max-width:10%;" alt="foto-producto")
+    else 
+        h3.alert.alert-danger="No se encontraron datos"

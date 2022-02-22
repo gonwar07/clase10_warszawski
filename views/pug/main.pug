@@ -1,0 +1,36 @@
+extends ./index
+block form
+    h3.text-primary= "Ingrese datos"
+    br
+    form(action="/productos" method="post")
+        div.form-group
+            label(for="name")="Nombre"
+            input#name.form-control(type="text" name="name")
+        div.form-group
+            label(for="price")="Precio"
+            input#price.form-control(type="number" name="price")
+        div.form-group
+            label(for="url")="Foto URL"
+            input#url.form-control(type="url" name="url")
+        input.btn.btn-success.mt-4(type="submit" value="Enviar")
+        a.btn.btn-success.text-light.text-decoration-none.mt-4.ms-4(href="/productos" role="button")="Ver Productos"
+
+
+block history
+    h3.text-primary.pt-4="Historial"
+    br
+    if productos.length > 0
+        div.table-responsive
+            table.table.table-dark.mb-5
+                tr.text-warning
+                    th.font-weight-bold="Nombre"
+                    th.font-weight-bold="Precio"
+                    th.font-weight-bold="Foto"
+                each prod in productos
+                    tr
+                        td.align-middle= `${prod.name}`
+                        td.align-middle= `${prod.price}`
+                        td
+                            img(src=`${prod.url}` style="max-width:10%;" alt="foto-producto")
+    else 
+        h3.alert.alert-danger="No se encontraron datos"

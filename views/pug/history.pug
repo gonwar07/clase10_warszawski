@@ -1,0 +1,18 @@
+extends ./index
+block history
+    h3.text-primary="Historial"
+    br
+    if productos.length > 0
+        div.table-responsive
+            table.table.table-dark
+                tr.text-warning
+                    th.font-weight-bold="Producto"
+                    th.font-weight-bold="Descripción"
+                    th.font-weight-bold="Precio"
+                each prod in productos
+                    tr
+                        td= `${prod.producto}`
+                        td= `${prod.description}`
+                        td= `${prod.precio}`
+    else 
+        h3.alert.alert-danger="No se encontraron datos"

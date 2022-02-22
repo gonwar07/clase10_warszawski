@@ -1,0 +1,16 @@
+    <div class="table-responsive">
+        <table class="table table-dark">
+            <tr class="text-warning">
+                <th class="font-weight-bold">Producto</th>
+                <th class="font-weight-bold">Descripción</th>
+                <th class="font-weight-bold">Precio</th>
+            </tr>
+            {{#each productos}}
+            <tr>
+                <td class="align-middle"> {{name}}</td>
+                <td class="align-middle"> {{price}} </td>
+                <td><img src={{url}} style="max-width:10%;" alt="foto-producto"></td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
